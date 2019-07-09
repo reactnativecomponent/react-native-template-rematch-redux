@@ -1,8 +1,9 @@
+/* eslint-disable react-native/no-inline-styles */
 /*
  * @Author: huangjun
  * @Date: 2018-11-28 14:21:36
- * @Last Modified by:   huangjun
- * @Last Modified time: 2018-11-28 14:21:36
+ * @Last Modified by: huangjun
+ * @Last Modified time: 2019-07-09 17:14:53
  */
 import React, { Component } from 'react';
 import { View, StyleSheet, Linking, Dimensions, TouchableOpacity } from 'react-native';
@@ -23,7 +24,7 @@ class Utils extends Component {
   componentDidMount() {
     // this.checkUpdate();
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.toast.id !== nextProps.toast.id) {
       Toast.show(nextProps.toast.text);
     }

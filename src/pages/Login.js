@@ -2,7 +2,7 @@
  * @Author: huangjun
  * @Date: 2018-11-28 14:21:31
  * @Last Modified by: huangjun
- * @Last Modified time: 2018-12-03 15:01:09
+ * @Last Modified time: 2019-07-09 17:15:37
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -26,6 +26,9 @@ const resetAction = StackActions.reset({
   })
 )
 class Login extends Component {
+  constructor(props) {
+    super(props);
+  }
   static navigationOptions = {
     title: 'Login',
   };
@@ -33,7 +36,6 @@ class Login extends Component {
   onLogin = async () => {
     const { fetching, asyncLogin } = this.props;
     await asyncLogin('13265515115');
-    console.log(fetching);
     this.props.navigation.dispatch(resetAction);
   };
 

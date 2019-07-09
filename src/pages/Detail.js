@@ -1,13 +1,16 @@
 /*
  * @Author: huangjun
  * @Date: 2018-11-28 14:21:24
- * @Last Modified by:   huangjun
- * @Last Modified time: 2018-11-28 14:21:24
+ * @Last Modified by: huangjun
+ * @Last Modified time: 2019-07-09 14:56:20
  */
 import React, { Component } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 
 class Detail extends Component {
+  constructor(props) {
+    super(props);
+  }
   static navigationOptions = {
     title: 'Detail',
   };

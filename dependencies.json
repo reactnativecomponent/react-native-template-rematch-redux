@@ -1,10 +1,13 @@
 {
-    "@rematch/core": "^1.0.6",
-    "@rematch/loading": "^1.1.2",
-    "@rematch/persist": "^1.1.5",
-    "react-native-ui-lib": "^3.5.0",
-    "react-native-vector-icons": "^6.1.0",
-    "react-navigation": "^3.0.4",
-    "react-redux": "^5.1.1",
-    "redux-logger": "^3.0.6"
+    "@react-native-community/cli": "^2.2.0",
+    "@rematch/core": "^1.1.0",
+    "@rematch/loading": "^1.1.3",
+    "@rematch/persist": "^1.1.6",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-native-ui-lib": "^3.30.1",
+    "react-native-vector-icons": "^6.6.0",
+    "react-navigation": "^3.11.0",
+    "react-redux": "6.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.10.0"
 }

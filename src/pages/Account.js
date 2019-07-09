@@ -1,14 +1,17 @@
 /*
  * @Author: huangjun
  * @Date: 2018-11-28 14:17:50
- * @Last Modified by:   huangjun
- * @Last Modified time: 2018-11-28 14:17:50
+ * @Last Modified by: huangjun
+ * @Last Modified time: 2019-07-09 14:56:21
  */
 import React, { Component } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class Account extends Component {
+  constructor(props) {
+    super(props);
+  }
   static navigationOptions = {
     title: 'Account',
     tabBarLabel: 'Account',

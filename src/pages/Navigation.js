@@ -2,9 +2,9 @@
  * @Author: huangjun
  * @Date: 2018-11-28 11:37:21
  * @Last Modified by: huangjun
- * @Last Modified time: 2018-12-03 15:04:42
+ * @Last Modified time: 2019-07-09 17:14:05
  */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { StyleSheet, View, Dimensions, BackHandler, ToastAndroid } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import Utils from './Utils';
@@ -29,10 +29,10 @@ class Navigation extends Component {
     this.lastBackPressed = null;
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', this.backHandle);
   }
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     BackHandler.removeEventListener('hardwareBackPress', this.backHandle);
   }
   backHandle = () => {
@@ -51,14 +51,16 @@ class Navigation extends Component {
   };
   render() {
     return (
-      <View style={styles.bg}>
-        <AppNavigator
-          ref={v => {
-            this.navigation = v;
-          }}
-        />
-        <Utils />
-      </View>
+      <Fragment>
+        <View style={styles.bg}>
+          <AppNavigator
+            ref={v => {
+              this.navigation = v;
+            }}
+          />
+          <Utils />
+        </View>
+      </Fragment>
     );
   }
 }

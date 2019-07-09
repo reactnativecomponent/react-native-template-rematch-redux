@@ -2,9 +2,9 @@
  * @Author: huangjun
  * @Date: 2018-11-28 11:04:58
  * @Last Modified by: huangjun
- * @Last Modified time: 2018-11-28 16:23:46
- * @flow
+ * @Last Modified time: 2019-07-09 14:23:44
  */
+
 import React from 'react';
 import { getPersistor } from '@rematch/persist';
 import { PersistGate } from 'redux-persist/es/integration/react';
