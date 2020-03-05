@@ -1,9 +1,9 @@
 /*
- * 全局样式相关的常量与判断
+ * @Descripttion: 全局样式相关的常量与判断
  * @Author: huangjun
- * @Date: 2018-05-25 14:52:19
+ * @Date: 2020-03-05 15:00:31
  * @Last Modified by: huangjun
- * @Last Modified time: 2018-11-28 14:24:22
+ * @Last Modified time: 2020-03-05 15:02:33
  */
 
 import {
@@ -11,25 +11,26 @@ import {
   Platform,
   PixelRatio,
   StyleSheet,
-  DeviceInfo,
-  NativeModules,
+  // NativeModules,
   StatusBar,
 } from 'react-native';
 
 const X_WIDTH = 375;
 const X_HEIGHT = 812;
 
-const { height: D_HEIGHT, width: D_WIDTH } = Dimensions.get('window');
+const {height: D_HEIGHT, width: D_WIDTH} = Dimensions.get('window');
 
-const { PlatformConstants = {} } = NativeModules;
-const { minor = 0 } = PlatformConstants.reactNativeVersion || {};
+// const {PlatformConstants = {}} = NativeModules;
+// const {minor = 0} = PlatformConstants.reactNativeVersion || {};
 
 const isIPhoneX = (() => {
-  if (Platform.OS === 'web') return false;
-
-  if (minor >= 50) {
-    return DeviceInfo.isIPhoneX_deprecated;
+  if (Platform.OS === 'web') {
+    return false;
   }
+
+  // if (minor >= 50) {
+  //   return DeviceInfo.isIPhoneX_deprecated;
+  // }
 
   return (
     Platform.OS === 'ios' &&
@@ -43,13 +44,15 @@ const statusBarHeight = (() => {
     return 44;
   }
   if (Platform.OS === 'android') {
-    if (Platform.Version < 19) return 0;
+    if (Platform.Version < 19) {
+      return 0;
+    }
     return StatusBar.currentHeight;
   }
   return 20;
 })();
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 // iOS 文字
 export const sanFranciscoWeights = {
@@ -124,7 +127,7 @@ export default {
   shadowStyle: {
     ...Platform.select({
       ios: {
-        shadowOffset: { width: 0, height: 0 },
+        shadowOffset: {width: 0, height: 0},
         shadowColor: '#000',
         shadowOpacity: 0.08,
         shadowRadius: 12,
@@ -137,7 +140,12 @@ export default {
 
   select: Platform.select,
 
-  Regular: Platform.OS === 'ios' ? sanFranciscoWeights.regular : robotoWeights.regular,
-  Medium: Platform.OS === 'ios' ? sanFranciscoWeights.medium : robotoWeights.medium,
-  Semibold: Platform.OS === 'ios' ? sanFranciscoWeights.semibold : robotoWeights.semibold,
+  Regular:
+    Platform.OS === 'ios' ? sanFranciscoWeights.regular : robotoWeights.regular,
+  Medium:
+    Platform.OS === 'ios' ? sanFranciscoWeights.medium : robotoWeights.medium,
+  Semibold:
+    Platform.OS === 'ios'
+      ? sanFranciscoWeights.semibold
+      : robotoWeights.semibold,
 };

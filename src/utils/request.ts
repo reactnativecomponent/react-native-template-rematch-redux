@@ -1,11 +1,12 @@
 /*
+ * @Descripttion:  网络请求
  * @Author: huangjun
- * @Date: 2018-05-25 10:44:30
+ * @Date: 2020-03-04 20:42:13
  * @Last Modified by: huangjun
- * @Last Modified time: 2019-07-09 14:23:28
+ * @Last Modified time: 2020-03-04 20:50:47
  */
 
-const codeMessage = {
+const codeMessage: any = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
   202: '一个请求已经进入后台排队（异步任务）。',
@@ -22,13 +23,14 @@ const codeMessage = {
   503: '服务不可用，服务器暂时过载或维护。',
   504: '网关超时。',
 };
-function checkStatus(response) {
+
+function checkStatus(response: any) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
-  const errorText = codeMessage[response.status] || response.statusText;
+  const errorText: any = codeMessage[response.status] || response.statusText;
 
-  const error = new Error(errorText);
+  const error: any = new Error(errorText);
   error.name = response.status;
   error.response = response;
   throw error;
@@ -41,11 +43,11 @@ function checkStatus(response) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-export default function request(url, options) {
+export default function request(url: string, options: any) {
   const defaultOptions = {
     timeout: 20 * 1000,
   };
-  const newOptions = { ...defaultOptions, ...options };
+  const newOptions = {...defaultOptions, ...options};
   if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
     if (!(newOptions.body instanceof FormData)) {
       newOptions.headers = {
@@ -90,13 +92,15 @@ export default function request(url, options) {
  * @param timeout
  * @returns {Promise<any>}
  */
-const timeoutPromise = (fetchPromise, timeout) => {
-  let abortFn = null;
+const timeoutPromise = (fetchPromise: any, timeout: any) => {
+  let abortFn: any = null;
 
   // 这是一个可以被reject的promise
   const abortPromise = new Promise((resolve, reject) => {
     abortFn = () => {
-      reject(new Error({ status: 504 }));
+      const error: any = new Error();
+      error.status = 504;
+      reject(error);
     };
   });
 

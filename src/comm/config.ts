@@ -1,8 +1,9 @@
 /*
+ * @Descripttion:  项目配置
  * @Author: huangjun
- * @Date: 2018-05-25 14:50:28
- * @Last Modified by: huangjun
- * @Last Modified time: 2018-11-28 14:24:29
+ * @Date: 2020-03-05 15:02:49
+ * @Last Modified by:   huangjun
+ * @Last Modified time: 2020-03-05 15:02:49
  */
 
 const config = {
